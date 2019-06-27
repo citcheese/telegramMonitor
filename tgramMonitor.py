@@ -118,7 +118,7 @@ def main():
     while 1:
         count += 1
         channels,filestodl = getkws()
-        monitorTelegram(channels=channels,downloadfiles=True,kwstofindinmessagestodownload=filestodl) #if you don't want to DL files set to false
+        monitorTelegram(channels=channels,downloadfiles=False,kwstofindinmessagestodownload=filestodl) #if you don't want to DL files set to false
 
         print(F"Completed run number {str(count)} at {str(datetime.now()).split('.', 1)[0]}")
         # below code runs script every hour
