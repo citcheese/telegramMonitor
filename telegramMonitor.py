@@ -151,7 +151,7 @@ def getkws():
 
 
 
-def main():
+def main(alertonerror=False):
     count = 0
     while 1:
         count += 1
@@ -162,7 +162,10 @@ def main():
 
         except Exception as e:
             fullError = traceback.format_exc()
-            EmailAlert.Py3send_email(F"Telegram: {str(e)}",str(fullError),str(fullError))
+            if alertonerror:
+                  EmailAlert.Py3send_email(F"Telegram: {str(e)}",str(fullError),str(fullError))
+            else:
+                  print(str(fullerror)
         # below code runs script every hour
         dt = datetime.now() + timedelta(hours=1)
         # dt = dt.replace(minute=10)
@@ -170,4 +173,4 @@ def main():
             time.sleep(1)
 
 if __name__ == '__main__':
-    main()
+    main(alertonerror=True)
